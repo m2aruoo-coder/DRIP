@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DRIP Coffee — تحدي القهوة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Kaushan+Script&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1b3a5f;--sky:#7ec4f0;--pink:#f8d9e6;--cream:#fffdf8;--ink:#1b3a5f;--card:#fffdf8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--card:#fffdf8}}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font-family:'Cairo',sans-serif;color:var(--navy);background:linear-gradient(180deg,#8ecbf2 0%,#b9d7f4 55%,#f8d9e6 100%);min-height:100vh;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;opacity:.28;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cg fill='none' stroke='%23fff' stroke-width='26' stroke-linecap='round'%3E%3Cpath d='M20 60c60-60 80 40 130 0s60-50 90 10'/%3E%3Cpath d='M10 180c70 40 70-60 140-20s50 90 150 20'/%3E%3Cpath d='M40 290c40-50 90 20 130-20s80-30 110 20'/%3E%3C/g%3E%3C/svg%3E");background-size:320px}
+main{position:relative;max-width:760px;margin:0 auto;padding:20px 16px 60px}
+.logo{font-family:'Dela Gothic One',sans-serif;font-size:clamp(76px,22vw,150px);line-height:.95;text-align:center;margin:10px 0 0;letter-spacing:-2px;direction:ltr}
+.tag{font-family:'Kaushan Script',cursive;font-size:clamp(22px,5vw,34px);text-align:center;direction:ltr;display:table;margin:6px auto 0;padding:0 14px;background:linear-gradient(transparent 62%,var(--pink) 62%)}
+.cup{display:block;margin:10px auto 0;width:150px;animation:float 3.4s ease-in-out infinite;filter:drop-shadow(0 18px 18px rgba(27,58,95,.35))}
+@keyframes float{50%{transform:translateY(-12px) rotate(-2deg)}}
+.drop{animation:fall 2.2s infinite;transform-origin:center}
+@keyframes fall{0%{transform:translateY(-6px);opacity:0}30%{opacity:1}100%{transform:translateY(34px);opacity:0}}
+.btn{font:900 20px 'Cairo';background:var(--navy);color:#fff;border:3px solid var(--sky);border-radius:60px;padding:14px 40px;cursor:pointer;box-shadow:0 8px 0 rgba(27,58,95,.25);transition:.15s}
+.btn:active{transform:translateY(4px);box-shadow:0 4px 0 rgba(27,58,95,.25)}
+.center{text-align:center}
+.card{background:var(--card);border:3px solid var(--navy);border-radius:28px;box-shadow:8px 8px 0 var(--navy);padding:22px;margin:22px 0}
+.hide{display:none!important}
+.lead{font-size:18px;font-weight:700;margin:14px 0 18px}
+.rules{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0 22px}
+.rules span{background:var(--pink);border-radius:30px;padding:6px 16px;font-weight:700;font-size:14px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.step{font-weight:900;font-size:18px}
+.ring{position:relative;width:70px;height:70px}
+.ring svg{transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:22px;font-family:'Dela Gothic One'}
+.q{font-size:clamp(20px,4.6vw,26px);font-weight:900;margin:18px 0}
+.opt{display:block;width:100%;text-align:right;font:700 18px 'Cairo';color:var(--navy);background:#fff;border:3px solid var(--navy);border-radius:18px;padding:14px 18px;margin:10px 0;cursor:pointer;transition:.15s}
+.opt:hover{background:var(--pink)}
+.opt.ok{background:#bdf0cf;border-color:#1f8a4c}
+.opt.no{background:#ffd0d0;border-color:#c0392b}
+.code{font-family:'Dela Gothic One';font-size:clamp(26px,7vw,42px);letter-spacing:3px;background:var(--pink);border:3px dashed var(--navy);border-radius:20px;padding:14px;margin:16px 0;direction:ltr;user-select:all}
+.big{font-size:56px}
+.info{display:grid;gap:14px}
+.info div{background:#fff;border:3px solid var(--navy);border-radius:20px;box-shadow:5px 5px 0 var(--navy);padding:14px 18px;font-weight:700}
+.info small{display:block;letter-spacing:2px;color:#6b7f96;font-weight:700;direction:ltr;text-align:right}
+h2{font-family:'Dela Gothic One';text-align:center;margin:30px 0 4px;direction:ltr}
+a{color:var(--navy)}
+</style>
+</head>
+<body>
+<main>
+<section id="home" class="center">
+  <div class="logo">DRIP</div>
+  <div class="tag">No Sleep. Just Drip.</div>
+  <svg class="cup" viewBox="0 0 120 190" aria-hidden="true">
+    <rect x="58" y="0" width="5" height="40" rx="2" fill="#d8b8c8" transform="rotate(8 60 20)"/>
+    <ellipse cx="60" cy="50" rx="48" ry="9" fill="#e9f4fb" stroke="#cfe3f0" stroke-width="2"/>
+    <path d="M14 54h92l-10 126q-1 8-9 8H33q-8 0-9-8z" fill="#3a2418" opacity=".97"/>
+    <path d="M14 54h92l-3 36H17z" fill="#6b4630" opacity=".7"/>
+    <rect x="30" y="100" width="12" height="12" rx="3" fill="#fff" opacity=".35"/><rect x="70" y="84" width="14" height="14" rx="3" fill="#fff" opacity=".3"/>
+    <text x="60" y="132" text-anchor="middle" font-family="Dela Gothic One" font-size="30" fill="#f8d9e6">DR</text>
+    <text x="60" y="162" text-anchor="middle" font-family="Dela Gothic One" font-size="30" fill="#f8d9e6">IP</text>
+    <ellipse class="drop" cx="60" cy="40" rx="3" ry="5" fill="#3a2418"/>
+  </svg>
+  <div class="card">
+    <div class="lead">جاوب على 3 أسئلة عن القهوة صح… وخد كود خصم 🎁</div>
+    <div class="rules"><span>⏱ 15 ثانية لكل سؤال</span><span>🎲 3 أسئلة عشوائية</span><span>☕ من 100 سؤال</span></div>
+    <button class="btn" id="start">ابدأ التحدي</button>
+  </div>
+</section>
+
+<section id="quiz" class="card hide">
+  <div class="top"><div class="step" id="step"></div>
+    <div class="ring"><svg width="70" height="70"><circle cx="35" cy="35" r="30" fill="none" stroke="#f8d9e6" stroke-width="8"/><circle id="arc" cx="35" cy="35" r="30" fill="none" stroke="#1b3a5f" stroke-width="8" stroke-linecap="round" stroke-dasharray="188.5" stroke-dashoffset="0"/></svg><b id="t">15</b></div></div>
+  <div class="q" id="q"></div>
+  <div id="opts"></div>
+</section>
+
+<section id="res" class="card center hide"></section>
+
+<h2>VISIT US</h2>
+<div class="tag" style="font-size:22px">Come taste the drip in person</div>
+<div class="info" style="margin-top:18px">
+  <div><small>ADDRESS</small>Mivida, Gate 2, Eterna Healthcare City, New Cairo</div>
+  <div><small>OPENING HOURS</small>Everyday from 9:00 AM to 12:00 AM</div>
+  <div><small>CALL US</small><a href="tel:+201225061050" dir="ltr">+201225061050</a></div>
+  <div><small>INSTAGRAM</small><a href="https://www.instagram.com/drip.c0ffee" target="_blank" rel="noopener">@drip.c0ffee</a></div>
+</div>
+</main>
+
+<script>
+const CODE="DRIP-NOSLEEP"; // غيّر الكود هنا
+const RAW=`أصل القهوة التاريخي؟|إثيوبيا|البرازيل|كولومبيا
+أكبر منتج للقهوة في العالم؟|البرازيل|مصر|اليابان
+الإسبريسو بيتحضر بإيه؟|ماء مضغوط على بن مطحون|ماء بارد فقط|حليب مغلي
+الكابتشينو أساسه؟|إسبريسو وحليب ورغوة|شاي وحليب|عصير وإسبريسو
+اللاتيه فيه؟|حليب أكتر من القهوة|رغوة بس|ماء فقط
+أعلى كافيين: أرابيكا ولا روبستا؟|روبستا|أرابيكا|زي بعض
+الكولد برو بيتحضر بـ؟|ماء بارد لساعات طويلة|ماء مغلي دقيقة|بخار فقط
+الأمريكانو؟|إسبريسو مع ماء ساخن|إسبريسو مع حليب|قهوة مثلجة بالكريمة
+الفلات وايت أصله؟|أستراليا|إيطاليا|تركيا
+الموكا فيها؟|شوكولاتة|كراميل|فانيليا
+الكورتادو؟|إسبريسو وحليب بنسبة متساوية|ماء وبن|كريمة فقط
+كام شوت في الدبل إسبريسو؟|2|1|4
+درجة حرارة الماء المثالية للتحضير؟|حوالي 93°م|50°م|120°م
+التحميص الأغمق بيدي؟|نكهة أقوى ومرارة|حموضة أكتر|لون أفتح
+V60 هي طريقة؟|تقطير يدوي|ضغط بخار|تخمير بارد
+الفرنش برس عبارة عن؟|مكبس|فلتر ورقي|ماكينة كبسولات
+الموكا بوت أصلها؟|إيطاليا|فرنسا|اليابان
+القهوة التركي بتتحضر في؟|الركوة|ماكينة|مكبس
+الكريما على الإسبريسو هي؟|الرغوة الذهبية|الحليب|السكر
+الأفوغاتو؟|إسبريسو فوق آيس كريم|لاتيه مثلج|شاي
+الريستريتو؟|إسبريسو مركز وأقصر|أطول من العادي|بارد
+اللونجو؟|إسبريسو أطول|أقصر|بالحليب
+الباريستا هو؟|محضّر القهوة المحترف|مزارع بن|مصمم أكواب
+ثمرة البن بتتسمى؟|كرز البن|عنب البن|توت البن
+حبوب البن في الأصل؟|بذور|ورق|جذور
+الاسبيشالتي كوفي درجته فوق؟|80 نقطة|50 نقطة|20 نقطة
+قهوة الديكاف؟|منزوعة معظم الكافيين|بدون بن|بدون ماء
+نسبة الفلتر الشائعة؟|1 بن : 16 ماء تقريباً|1 : 1|1 : 100
+الطحن الناعم يناسب؟|الإسبريسو|الفرنش برس|الكولد برو
+الطحن الخشن يناسب؟|الفرنش برس|الإسبريسو|القهوة التركي
+القهوة التركي طحنها؟|ناعم جداً|خشن|متوسط
+أحسن طريقة لحفظ البن؟|علبة محكمة بعيداً عن الضوء|مكشوف في المطبخ|تحت الشمس
+الكافيين مادة؟|منبهة|مهدئة|مسكنة
+الأيس لاتيه بيتقدم؟|بالثلج والحليب|ساخن فقط|بالزبادي
+الإسبريسو معناها؟|سريع/مضغوط|حلو|بارد
+الكابتشينو اتسمى على لون؟|رداء الرهبان الكبوشيين|الجبل|الفنجان
+ضغط الإسبريسو المعتاد؟|9 بار|1 بار|50 بار
+زمن استخراج الإسبريسو؟|25–30 ثانية|5 ثوان|3 دقائق
+الـ Bloom في القهوة المحضّرة؟|انتفاخ البن عند أول صب|تجميد البن|حرق البن
+الـ Tamper؟|أداة كبس البن|مطحنة|كوب
+الـ Portafilter؟|حامل البن في الماكينة|كوب|خزان ماء
+الـ Steam Wand؟|ذراع بخار الحليب|مطحنة|فلتر
+الميكروفوم؟|رغوة حليب ناعمة|بن مطحون|سكر
+اللاتيه آرت؟|رسم بالرغوة|ثلج مرسوم|نوع تحميص
+الفلتر الورقي بيعمل؟|يحجز الزيوت والرواسب|يزود الكافيين|يحلّي القهوة
+يوم القهوة العالمي؟|1 أكتوبر|1 يناير|14 فبراير
+الكراميل ماكياتو فيه؟|فانيليا وحليب وإسبريسو وكراميل|شاي وعسل|ماء وملح
+الفانيليا بتتضاف للقهوة في؟|السيرب|المطحنة|الكوب الفاضي
+الأيس أمريكانو؟|إسبريسو وماء بارد وثلج|حليب ساخن|عصير
+الدالجونا؟|قهوة رغوية مخفوقة|شاي|عصير
+الإسبريسو تونيك؟|إسبريسو مع مياه غازية|إسبريسو مع زبدة|إسبريسو مع لبن رايب
+القهوة بتتزرع في الحزام؟|الاستوائي|القطبي|الصحراوي
+المزارع العالية ارتفاعاً بتدي؟|حموضة ونكهة معقدة|نكهة باهتة|بدون طعم
+كوب 12 أونصة تقريباً؟|355 مل|100 مل|1 لتر
+الأونصة السائلة تقريباً؟|30 مل|100 مل|5 مل
+الشوت الواحد بياخد تقريباً؟|7–9 جرام بن|100 جرام|1 كيلو
+أفضل وقت لاستهلاك البن بعد التحميص؟|أسابيع قليلة|سنتين|10 سنين
+الـ Cold Foam؟|رغوة حليب باردة|ثلج مجروش|سيرب
+الكراميل بيتعمل من؟|سكر محروق|ملح|دقيق
+رغوة الفلات وايت؟|رقيقة وناعمة|سميكة جداً|مفيش رغوة
+الكابتشينو التقليدي رغوته؟|حوالي ثلث الكوب|مفيش|ثلاثة أرباع
+أفضل وقت تشرب القهوة بعد تحضيرها؟|فوراً وهي طازجة|بعد يوم|بعد أسبوع
+Drip coffee معناها؟|تنقيط الماء على البن|غلي البن|تجميد البن
+سلوجان DRIP؟|No Sleep. Just Drip.|Sleep More|Just Tea
+DRIP موجود في؟|ميفيدا – القاهرة الجديدة|الإسكندرية|الأقصر
+ألوان DRIP؟|أزرق ووردي|أخضر وأصفر|أحمر وأسود
+DRIP بتقدم؟|Specialty Coffee|بيتزا|عصائر فقط
+DRIP بيفتح الساعة؟|9 الصبح|6 الصبح|12 الضهر
+الكافيين بيبدأ مفعوله خلال؟|حوالي 15–45 دقيقة|ثانية واحدة|يومين
+نصف عمر الكافيين تقريباً؟|حوالي 5 ساعات|10 دقائق|3 أيام
+أقصى كافيين يومي للبالغين تقريباً؟|400 ملجم|4000 ملجم|40 ملجم
+القهوة بتساعد على؟|اليقظة|النعاس|نمو الشعر فقط
+المشروب المثلج بيتقدم في؟|كوب شفاف|فنجان ساخن|كوب خشب
+Brew معناها؟|يحضّر/يخمّر|يجمّد|يطحن
+Roast معناها؟|تحميص|طحن|تعبئة
+Grind معناها؟|طحن|تحميص|تبريد
+Blend معناها؟|مزيج حبوب|حبة واحدة|ماء
+Single Origin؟|بن من مصدر واحد|مخلوط من كل مكان|ذائب
+الإنستنت كوفي؟|قهوة سريعة الذوبان|حبوب كاملة|بدون كافيين
+نسبريسو نوعها؟|كبسولات|مكبس|فلتر
+أنسب حليب للرغوة؟|كامل الدسم|الخالي من الدسم|الماء
+بدائل الحليب النباتي؟|الشوفان|الرمل|الخل
+رشة ملح في القهوة بتقلل؟|المرارة|الحلاوة|اللون
+القرفة مع القهوة؟|نكهة دافئة|مرارة|بدون تأثير
+القهوة العربية بتتتبل بـ؟|الهيل|الفلفل|الليمون
+الـ French Roast؟|تحميص داكن|تحميص فاتح|بن نيء
+الـ Light Roast؟|حموضة وفاكهية|مرارة محروقة|بدون طعم
+الـ Medium Roast؟|متوازن|نيء|محروق
+دول بتستهلك قهوة أكتر للفرد؟|بلاد الشمال الأوروبي|الصحراء الكبرى|القطب الجنوبي
+إيطاليا اشتهرت بـ؟|الإسبريسو|الدالجونا|الكولد برو
+فيتنام اشتهرت بقهوة؟|بالحليب المكثف|بالليمون|بالزبادي
+Sip slow معناها؟|اشرب على مهلك|اشرب بسرعة|متشربش
+الثلج بيبرّد القهوة بسرعة لأنه؟|درجته أقل بكتير|مالح|حلو
+مكعبات قهوة مجمدة بتمنع؟|تخفيف الطعم|الكافيين|اللون
+Once you DRIP…؟|there's no going back|go to sleep|stay home
+كلمة Drip معناها؟|تنقيط/قطرة|جبل|بحر`;
+const POOL=RAW.split("\n").map(l=>{const [q,a,b,c]=l.split("|");return{q,a,o:[a,b,c]}});
+const $=id=>document.getElementById(id);
+let set,i,score,timer,left;
+function shuffle(a){for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function start(){set=shuffle(POOL.slice()).slice(0,3);i=0;score=0;$("home").classList.add("hide");$("res").classList.add("hide");$("quiz").classList.remove("hide");show();window.scrollTo({top:0,behavior:"smooth"})}
+function show(){const Q=set[i];$("step").textContent=`السؤال ${i+1} / 3`;$("q").textContent=Q.q;const box=$("opts");box.innerHTML="";
+ shuffle(Q.o.slice()).forEach(t=>{const b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=()=>pick(b,t);box.appendChild(b)});
+ left=15;tick();clearInterval(timer);timer=setInterval(()=>{left--;tick();if(left<=0){clearInterval(timer);pick(null,null)}},1000)}
+function tick(){$("t").textContent=left;$("arc").style.strokeDashoffset=188.5*(1-left/15)}
+function pick(btn,val){clearInterval(timer);const Q=set[i];
+ document.querySelectorAll(".opt").forEach(b=>{b.disabled=true;if(b.textContent===Q.a)b.classList.add("ok")});
+ if(btn&&val===Q.a)score++;else if(btn)btn.classList.add("no");
+ setTimeout(()=>{i++;i<3?show():finish()},1100)}
+function finish(){$("quiz").classList.add("hide");const r=$("res");r.classList.remove("hide");
+ r.innerHTML=score===3?`<div class="big">🎉</div><h2 style="margin:0">3 / 3 — أسطورة!</h2><div class="lead">ده كود الخصم بتاعك من DRIP</div><div class="code" id="cd">${CODE}</div><button class="btn" id="cp">انسخ الكود</button><p>وريه للكاشير في الفرع ☕</p>`
+ :`<div class="big">☕</div><h2 style="margin:0">${score} / 3</h2><div class="lead">قربت! جرّب تاني بأسئلة جديدة</div><button class="btn" id="again">حاول تاني</button>`;
+ if(score===3)$("cp").onclick=()=>{try{navigator.clipboard.writeText(CODE)}catch(e){}$("cp").textContent="تم النسخ ✓"};
+ else $("again").onclick=start}
+$("start").onclick=start;
+</script>
+</body>
+</html>
